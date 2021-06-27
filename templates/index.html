@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-md-3"></div>
+        <div class="col-sm-6 col-md-6">
+            <br>
+            <h1>Heart Disease Prediction</h1>
+            <br>
+            <form method="POST" action="{{url_for('predict')}}">
+    <input type="text" name="age" placeholder="Enter Age" class="form-control" required><br>
+
+    <select class="select_picker form-control" id="sex" name="sex" placeholder="Sex" required>
+        <option value="1" class="form-control">Sex-Male</option>
+        <option value="0" class="form-control">Sex-Female</option>
+    </select><br>
+
+    <select class="select_picker form-control" id="chest_pain" name="chest_pain" placeholder="chest_pain" required>
+        <option value="0" class="form-control">Chest Pain-Typical Angina</option>
+        <option value="1" class="form-control">Chest Pain-A Typical Angina</option>
+        <option value="2" class="form-control">Chest Pain-Non Angina Pain</option>
+        <option value="3" class="form-control">Chest Pain-Asymptomatic</option>
+    </select><br>
+
+    <input type="number" name="rbp" placeholder="Resting Blood Pressure in mm/hg" class="form-control"  required><br>
+
+    <input type="number" name="sc" placeholder="Serum Cholestrol mg/dl" class="form-control" required><br>
+
+    <select class="select_picker form-control" id="fbs" name="fbs" placeholder="fasting blood sugar" required>
+        <option value="0" class="form-control">Fasting Blood Sugar-False</option>
+        <option value="1" class="form-control">Fasting Blood Sugar-True</option>
+    </select><br>
+
+    <select class="select_picker form-control" id="ecg" name="ecg" placeholder="electrocardiographic result" required>
+        <option value="0" class="form-control">Electrocardiographic Result-Normal</option>
+        <option value="1" class="form-control">Electrocardiographic Result-ST-T Abnormal</option>
+        <option value="2" class="form-control">Electrocardiographic Result-Left Venticular hypertrophy</option>
+    </select><br>
+
+    <input type="number" name="heart_rate" placeholder="max heart rate" class="form-control"  required><br>
+
+    <select class="select_picker form-control" id="eia" name="eia" placeholder="exercise induced angina" required>
+        <option value="0" class="form-control">Exercise Induced Angina-No</option>
+        <option value="1" class="form-control">Exercise Induced Angina-Yes</option>
+    </select><br>
+
+    <input type="text" name="oldpeak" placeholder="Oldpeak 0-6.2" class="form-control"  required><br>
+
+
+    <select class="select_picker form-control" id="slope_peak" name="slope_peak" placeholder="slope_peak" required>
+        <option value="0" class="form-control">Slope Peak-Unsloping</option>
+        <option value="1" class="form-control">Slope Peak-Flat</option>
+        <option value="2" class="form-control">Slope Peak-Downsloping</option>
+    </select><br>
+
+
+    <select class="select_picker form-control" id="number_vessel" name="number_vessel" placeholder="number_vessel" required>
+        <option value="0" class="form-control">Number Vessel-0</option>
+        <option value="1" class="form-control">Number Vessel-1</option>
+        <option value="2" class="form-control">Number Vessel-2</option>
+        <option value="3" class="form-control">Number Vessel-3</option>
+        <option value="4" class="form-control">Number Vessel-4</option>
+    </select><br>
+
+    <select class="select_picker form-control" id="thal" name="thal" placeholder="thal" required>
+        <option value="0" class="form-control">Thal-Normal</option>
+        <option value="1" class="form-control">Thal-Fixed Defect</option>
+        <option value="2" class="form-control">Thal-Reversible Defect</option>
+        <option value="3" class="form-control">Thal-Other</option>
+    </select><br>
+
+    <button type="submit" class="btn btn-primary form-control" id="myBtn"><b>Submit</b></button>
+
+    <br><br>
+
+                <div class="predict">
+                    {{predictions}}
+                </div><br><br>
+
+</form>
+        </div>
+        <div class="col-sm-3 col-md-3"></div>
+
+    </div>
+</div>
+
+
+
+</body>
+</html>
